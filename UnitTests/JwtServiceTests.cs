@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Security;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
 using Xunit;
 
 namespace GlitchedPolygons.Services.JwtService.UnitTests
@@ -51,11 +53,12 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
             var token = jwt.GenerateToken(lifetime: TimeSpan.FromMilliseconds(250));
 
             await Task.Delay(750);
-            var result = jwt.Validate(token);
+            var result = jwt.ValidateToken(token);
 
             Assert.False(result.Successful);
             Assert.Null(result.ValidatedToken);
             Assert.NotNull(result.ErrorMessage);
+            Assert.IsType<SecurityTokenExpiredException>(result.Exception);
         }
 
         [Fact]
@@ -67,14 +70,15 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
                 notBefore: DateTime.UtcNow.AddMilliseconds(1500)
             );
 
-            var result = jwt.Validate(token);
+            var result = jwt.ValidateToken(token);
 
             Assert.False(result.Successful);
             Assert.Null(result.ValidatedToken);
             Assert.NotNull(result.ErrorMessage);
+            Assert.IsType<SecurityTokenNotYetValidException>(result.Exception);
 
             await Task.Delay(2500);
-            result = jwt.Validate(token);
+            result = jwt.ValidateToken(token);
 
             Assert.True(result.Successful);
             Assert.NotNull(result.ValidatedToken);
@@ -108,9 +112,10 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
             );
 
             await Task.Delay(2500);
-            var result = jwt.Validate(token);
+            var result = jwt.ValidateToken(token);
 
             Assert.True(result.Successful);
+            Assert.Null(result.Exception);
             Assert.Null(result.ErrorMessage);
             Assert.NotNull(result.ValidatedToken);
         }
@@ -126,11 +131,117 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
             );
 
             await Task.Delay(4000);
-            var result = jwt.Validate(token);
+            var result = jwt.ValidateToken(token);
 
             Assert.True(result.Successful);
+            Assert.Null(result.Exception);
             Assert.Null(result.ErrorMessage);
             Assert.NotNull(result.ValidatedToken);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        public void ValidateToken_NullOrEmptyJwt_ThrowsArgumentException(string jwt)
+        {
+            Assert.Throws<ArgumentException>(() => new JwtService(key).ValidateToken(jwt));
+        }
+
+        [Fact]
+        public void ValidateToken_ValidationParametersWithNullIssuerSigningKey_ThrowsArgumentException()
+        {
+            Assert.Throws<ArgumentException>(() => new JwtService(key).ValidateToken("jwt", new TokenValidationParameters()));
+        }
+
+        [Fact]
+        public void GenerateToken_ValidateAgainstSingleIssuer_ShouldSucceed()
+        {
+            var jwt = new JwtService(key, 
+                validateLifetime: false, 
+                issuers: new[] { "issuer" }
+            );
+
+            var token = jwt.GenerateToken(
+                issuer: "issuer"
+            );
+
+            var result = jwt.ValidateToken(token);
+
+            Assert.True(result.Successful);
+            Assert.Null(result.Exception);
+            Assert.Null(result.ErrorMessage);
+            Assert.NotNull(result.ValidatedToken);
+        }
+
+        [Theory]
+        [InlineData("issuer_1")]
+        [InlineData("issuer_2")]
+        [InlineData("issuer_3")]
+        [InlineData("issuer_4")]
+        [InlineData("issuer_5")]
+        public void GenerateToken_ValidateAgainstMultipleIssuers_ShouldSucceed(string issuer)
+        {
+            var jwt = new JwtService(key,
+                validateLifetime: false,
+                issuers: new[] { "issuer_1", "issuer_2", "issuer_3", "issuer_4", "issuer_5" }
+            );
+
+            var token = jwt.GenerateToken(
+                issuer: issuer
+            );
+
+            var result = jwt.ValidateToken(token);
+
+            Assert.True(result.Successful);
+            Assert.Null(result.Exception);
+            Assert.Null(result.ErrorMessage);
+            Assert.NotNull(result.ValidatedToken);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        [InlineData("bad_guy")]
+        public void GenerateToken_ValidateInvalidIssuerAgainstSingleIssuer_ShouldFail(string issuer)
+        {
+            var jwt = new JwtService(key,
+                validateLifetime: false,
+                issuers: new[] { "issuer" }
+            );
+
+            var token = jwt.GenerateToken(
+                issuer: issuer
+            );
+
+            var result = jwt.ValidateToken(token);
+
+            Assert.False(result.Successful);
+            Assert.Null(result.ValidatedToken);
+            Assert.NotNull(result.ErrorMessage);
+            Assert.IsType<SecurityTokenInvalidIssuerException>(result.Exception);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        [InlineData("bad_guy")]
+        public void GenerateToken_ValidateInvalidIssuerAgainstMultipleIssuers_ShouldFail(string issuer)
+        {
+            var jwt = new JwtService(key,
+                validateLifetime: false,
+                issuers: new[] { "issuer_1", "issuer_2", "issuer_3", "issuer_4", "issuer_5" }
+            );
+
+            var token = jwt.GenerateToken(
+                issuer: issuer
+            );
+
+            var result = jwt.ValidateToken(token);
+
+            Assert.False(result.Successful);
+            Assert.Null(result.ValidatedToken);
+            Assert.NotNull(result.ErrorMessage);
+            Assert.IsType<SecurityTokenInvalidIssuerException>(result.Exception);
         }
     }
 }

@@ -89,16 +89,16 @@ namespace GlitchedPolygons.Services.JwtService
         /// <param name="jwt">The token to validate (encoded jwt).</param>
         /// <param name="validationParameters">The <see cref="TokenValidationParameters"/> to use for validation: can be left out <c>null</c> (the parameters defined in the <see cref="JwtService"/> constructor are used in that case).</param>
         /// <returns>A <see cref="JwtValidationResult"/> object containing the validation's outcome.</returns>
-        public JwtValidationResult Validate(string jwt, TokenValidationParameters validationParameters = null)
+        public JwtValidationResult ValidateToken(string jwt, TokenValidationParameters validationParameters = null)
         {
             if (string.IsNullOrEmpty(jwt))
             {
-                throw new ArgumentException($"{nameof(JwtService)}::{nameof(Validate)}: The {nameof(jwt)} argument is either null or empty! What were you trying to validate?");
+                throw new ArgumentException($"{nameof(JwtService)}::{nameof(ValidateToken)}: The {nameof(jwt)} argument is either null or empty! What were you trying to validate?");
             }
 
             if (validationParameters != null && validationParameters.IssuerSigningKey is null)
             {
-                throw new ArgumentException($"{nameof(JwtService)}::{nameof(Validate)}: The {validationParameters} argument's {nameof(validationParameters.IssuerSigningKey)} is null! If you use this overload with the custom validation params, please make sure that they're valid!");
+                throw new ArgumentException($"{nameof(JwtService)}::{nameof(ValidateToken)}: The {validationParameters} argument's {nameof(validationParameters.IssuerSigningKey)} is null! If you use this overload with the custom validation params, please make sure that they're valid!");
             }
 
             try
@@ -116,7 +116,23 @@ namespace GlitchedPolygons.Services.JwtService
                 return new JwtValidationResult(
                     validatedToken: null,
                     exception: exception,
-                    errorMessage: $"{nameof(JwtService)}::{nameof(Validate)}: The token expired and failed validation: {exception.Message}"
+                    errorMessage: $"{nameof(JwtService)}::{nameof(ValidateToken)}: The token expired and failed validation: {exception.Message}"
+                );
+            }
+            catch (SecurityTokenNotYetValidException exception)
+            {
+                return new JwtValidationResult(
+                    validatedToken: null,
+                    exception: exception,
+                    errorMessage: $"{nameof(JwtService)}::{nameof(ValidateToken)}: The token is not yet valid and failed validation: {exception.Message}"
+                );
+            }
+            catch (SecurityTokenInvalidIssuerException exception)
+            {
+                return new JwtValidationResult(
+                    validatedToken: null,
+                    exception: exception,
+                    errorMessage: $"{nameof(JwtService)}::{nameof(ValidateToken)}: The token's issuer claim is invalid and thus couldn't be validated: {exception.Message}"
                 );
             }
             catch (SecurityTokenValidationException exception)
@@ -124,7 +140,7 @@ namespace GlitchedPolygons.Services.JwtService
                 return new JwtValidationResult(
                     validatedToken: null,
                     exception: exception,
-                    errorMessage: $"{nameof(JwtService)}::{nameof(Validate)}: The token was not well-formed or was invalid for some other reason: {exception.Message}"
+                    errorMessage: $"{nameof(JwtService)}::{nameof(ValidateToken)}: The token was not well-formed or was invalid for some other reason: {exception.Message}"
                 );
             }
             catch (Exception exception)
@@ -132,7 +148,7 @@ namespace GlitchedPolygons.Services.JwtService
                 return new JwtValidationResult(
                     validatedToken: null,
                     exception: exception,
-                    errorMessage: $"{nameof(JwtService)}::{nameof(Validate)}: Token failed validation... Error message: {exception.Message}"
+                    errorMessage: $"{nameof(JwtService)}::{nameof(ValidateToken)}: Token failed validation... Error message: {exception.Message}"
                 );
             }
         }

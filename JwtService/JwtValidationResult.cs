@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 namespace GlitchedPolygons.Services.JwtService
 {
     /// <summary>
-    /// The resulting object from a JWT-validation induced via <see cref="JwtService.Validate"/>.
+    /// The resulting object from a JWT-validation induced via <see cref="JwtService.ValidateToken"/>.
     /// </summary>
     public class JwtValidationResult
     {
