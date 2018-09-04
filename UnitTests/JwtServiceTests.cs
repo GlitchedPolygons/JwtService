@@ -1,13 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security;
 using System.Security.Claims;
-using System.Threading;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
+
 using Microsoft.IdentityModel.Tokens;
+
 using Xunit;
 
 namespace GlitchedPolygons.Services.JwtService.UnitTests

@@ -69,6 +69,11 @@ namespace GlitchedPolygons.Services.JwtService
                 expires = DateTime.UtcNow.Add(lifetime.Value);
             }
 
+            if (notBefore.HasValue && notBefore.Value.ToUniversalTime() != notBefore.Value)
+            {
+                throw new ArgumentException($"{nameof(JwtService)}::{nameof(GenerateToken)}: The {notBefore} parameter is not in UTC! Make sure it is!!");
+            }
+
             var jwt = new JwtSecurityToken(
                 signingCredentials: credentials,
                 issuer: issuer,
@@ -106,7 +111,7 @@ namespace GlitchedPolygons.Services.JwtService
                 var claimsPrincipal = jwtSecurityTokenHandler.ValidateToken(jwt, validationParameters ?? this.validationParameters, out var validatedToken);
 
                 return new JwtValidationResult(
-                    validatedToken: new Tuple<JwtSecurityToken, IPrincipal>((JwtSecurityToken) validatedToken, claimsPrincipal),
+                    validatedToken: new Tuple<JwtSecurityToken, IPrincipal>((JwtSecurityToken)validatedToken, claimsPrincipal),
                     exception: null,
                     errorMessage: null
                 );
