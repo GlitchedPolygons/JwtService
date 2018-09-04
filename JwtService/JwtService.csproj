@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>GlitchedPolygons.Services.JwtService</PackageId>
+    <Product>GlitchedPolygons.Services.JwtService</Product>
+    <Authors>Glitched Polygons</Authors>
+    <Company>Glitched Polygons</Company>
+    <Description>A useful service class that provides functionality for generating and validating JWTs.</Description>
+    <RepositoryUrl>https://github.com/GlitchedPolygons/JwtService</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/GlitchedPolygons/JwtService</PackageProjectUrl>
+    <PackageIconUrl>https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/036/landscape/jwt.png</PackageIconUrl>
+    <PackageTags>c# jwt token auth authentication web api security validation safety expiration</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\JwtService.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\JwtService.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.2.4" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.2.4" />
+  </ItemGroup>
+
+</Project>
