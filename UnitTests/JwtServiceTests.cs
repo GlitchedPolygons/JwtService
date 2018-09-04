@@ -97,7 +97,7 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
                 {
                     var token = jwt.GenerateToken(
                         lifetime: TimeSpan.FromSeconds(3),
-                        notBefore: DateTime.Now.AddSeconds(1)
+                        notBefore: new DateTime(int.MaxValue - 1, 10, 10, 10, 10, 10, DateTimeKind.Local)
                     );
                 }
             );

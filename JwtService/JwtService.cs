@@ -69,7 +69,7 @@ namespace GlitchedPolygons.Services.JwtService
                 expires = DateTime.UtcNow.Add(lifetime.Value);
             }
 
-            if (notBefore.HasValue && notBefore.Value.ToUniversalTime() != notBefore.Value)
+            if (notBefore.HasValue && notBefore.Value.Kind != DateTimeKind.Utc)
             {
                 throw new ArgumentException($"{nameof(JwtService)}::{nameof(GenerateToken)}: The {notBefore} parameter is not in UTC! Make sure it is!!");
             }
