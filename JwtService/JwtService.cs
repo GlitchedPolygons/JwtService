@@ -106,7 +106,7 @@ namespace GlitchedPolygons.Services.JwtService
                 var claimsPrincipal = jwtSecurityTokenHandler.ValidateToken(jwt, validationParameters ?? this.validationParameters, out var validatedToken);
 
                 return new JwtValidationResult(
-                    validatedToken: new Tuple<JwtSecurityToken, IPrincipal>((JwtSecurityToken)validatedToken, claimsPrincipal),
+                    validatedToken: new Tuple<JwtSecurityToken, IPrincipal>((JwtSecurityToken) validatedToken, claimsPrincipal),
                     exception: null,
                     errorMessage: null
                 );
@@ -133,6 +133,14 @@ namespace GlitchedPolygons.Services.JwtService
                     validatedToken: null,
                     exception: exception,
                     errorMessage: $"{nameof(JwtService)}::{nameof(ValidateToken)}: The token's issuer claim is invalid and thus couldn't be validated: {exception.Message}"
+                );
+            }
+            catch (SecurityTokenInvalidAudienceException exception)
+            {
+                return new JwtValidationResult(
+                    validatedToken: null,
+                    exception: exception,
+                    errorMessage: $"{nameof(JwtService)}::{nameof(ValidateToken)}: The token's audience invalid and thus couldn't be validated: {exception.Message}"
                 );
             }
             catch (SecurityTokenValidationException exception)
