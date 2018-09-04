@@ -33,7 +33,7 @@ namespace GlitchedPolygons.Services.JwtService
             {
                 throw new ArgumentException($"{nameof(JwtService)}::ctor: The mandatory {nameof(key)} parameter is either null or empty!");
             }
-            
+
             validationParameters = new TokenValidationParameters
             {
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key.ToString())),
@@ -83,33 +83,57 @@ namespace GlitchedPolygons.Services.JwtService
 
         /// <summary>
         /// Validates a jwt <c>string</c> that has been created using the <see cref="GenerateToken"/> method.<para> </para>
-        /// If the validation was successful, a <see cref="Tuple"/> containing both the raw, validated <see cref="JwtSecurityToken"/> and the deserialized <see cref="IPrincipal"/> instance is returned.<para> </para>
-        /// If anything went wrong though (invalid, expired, etc...), <c>null</c> is returned.
+        /// If the validation was successful, a <see cref="JwtValidationResult"/> containing both the raw, validated <see cref="JwtSecurityToken"/> and the deserialized <see cref="IPrincipal"/> instance is returned.<para> </para>
+        /// If anything went wrong though (invalid, expired, etc...), the returned <see cref="JwtValidationResult"/> object contains information about the failure (e.g. thrown <see cref="Exception"/>, error message <c>string</c>).
         /// </summary>
         /// <param name="jwt">The token to validate (encoded jwt).</param>
         /// <param name="validationParameters">The <see cref="TokenValidationParameters"/> to use for validation: can be left out <c>null</c> (the parameters defined in the <see cref="JwtService"/> constructor are used in that case).</param>
-        /// <returns>If validation failed (e.g. expired), <c>null</c>. Otherwise a <see cref="Tuple{JwtSecurityToken, IPrincipal}"/> containing both the raw, validated <see cref="JwtSecurityToken"/> and the deserialized <see cref="IPrincipal"/> instance.</returns>
-        public Tuple<JwtSecurityToken, IPrincipal> Validate(string jwt, TokenValidationParameters validationParameters = null)
+        /// <returns>A <see cref="JwtValidationResult"/> object containing the validation's outcome.</returns>
+        public JwtValidationResult Validate(string jwt, TokenValidationParameters validationParameters = null)
         {
+            if (string.IsNullOrEmpty(jwt))
+            {
+                throw new ArgumentException($"{nameof(JwtService)}::{nameof(Validate)}: The {nameof(jwt)} argument is either null or empty! What were you trying to validate?");
+            }
+
+            if (validationParameters != null && validationParameters.IssuerSigningKey is null)
+            {
+                throw new ArgumentException($"{nameof(JwtService)}::{nameof(Validate)}: The {validationParameters} argument's {nameof(validationParameters.IssuerSigningKey)} is null! If you use this overload with the custom validation params, please make sure that they're valid!");
+            }
+
             try
             {
                 var claimsPrincipal = jwtSecurityTokenHandler.ValidateToken(jwt, validationParameters ?? this.validationParameters, out var validatedToken);
-                return new Tuple<JwtSecurityToken, IPrincipal>((JwtSecurityToken)validatedToken, claimsPrincipal);
+
+                return new JwtValidationResult(
+                    validatedToken: new Tuple<JwtSecurityToken, IPrincipal>((JwtSecurityToken)validatedToken, claimsPrincipal),
+                    exception: null,
+                    errorMessage: null
+                );
             }
-            catch (SecurityTokenExpiredException e) // TODO: find a way to accept some sort of error logging interface
+            catch (SecurityTokenExpiredException exception)
             {
-                //logger?.Log(LogLevel.Error, $"{nameof(JwtService)}::{nameof(Validate)}: The token expired and failed validation: {e.Message}", e);
-                return null;
+                return new JwtValidationResult(
+                    validatedToken: null,
+                    exception: exception,
+                    errorMessage: $"{nameof(JwtService)}::{nameof(Validate)}: The token expired and failed validation: {exception.Message}"
+                );
             }
-            catch (SecurityTokenValidationException e)
+            catch (SecurityTokenValidationException exception)
             {
-                //logger?.Log(LogLevel.Error, $"{nameof(JwtService)}::{nameof(Validate)}: The token was not well-formed or was invalid for some other reason: {e.Message}", e);
-                return null;
+                return new JwtValidationResult(
+                    validatedToken: null,
+                    exception: exception,
+                    errorMessage: $"{nameof(JwtService)}::{nameof(Validate)}: The token was not well-formed or was invalid for some other reason: {exception.Message}"
+                );
             }
-            catch (Exception e)
+            catch (Exception exception)
             {
-                //logger?.Log(LogLevel.Error, $"{nameof(JwtService)}::{nameof(Validate)}: Token failed validation... Error message: {e.Message}", e);
-                return null;
+                return new JwtValidationResult(
+                    validatedToken: null,
+                    exception: exception,
+                    errorMessage: $"{nameof(JwtService)}::{nameof(Validate)}: Token failed validation... Error message: {exception.Message}"
+                );
             }
         }
     }
