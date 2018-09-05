@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/GlitchedPolygons/JwtService.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/JwtService) [![Travis Build Status](https://travis-ci.org/GlitchedPolygons/JwtService.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/JwtService)
+[![NuGet](https://img.shields.io/nuget/v/GlitchedPolygons.Services.JwtService.svg)](https://www.nuget.org/packages/GlitchedPolygons.Services.JwtService) [![CircleCI](https://circleci.com/gh/GlitchedPolygons/JwtService.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/JwtService) [![Travis Build Status](https://travis-ci.org/GlitchedPolygons/JwtService.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/JwtService)
 
 # JWT service
 
