@@ -15,9 +15,9 @@ namespace GlitchedPolygons.Services.JwtService
     /// </summary>
     public class JwtService
     {
-        readonly SigningCredentials credentials;
-        readonly TokenValidationParameters validationParameters;
-        readonly JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+        private readonly SigningCredentials credentials;
+        private readonly TokenValidationParameters validationParameters;
+        private readonly JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
 
         /// <summary>
         /// Constructs a new <see cref="JwtService"/> instance used for generating and validating tokens using the specified settings.

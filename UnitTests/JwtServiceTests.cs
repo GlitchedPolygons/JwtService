@@ -14,8 +14,8 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
     [SuppressMessage("ReSharper", "EnforceIfStatementBraces")]
     public class JwtServiceTests : IDisposable
     {
-        readonly SecureString key;
-        const string CHARS = "$%#@!*-abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private readonly SecureString key;
+        private const string CHARS = "$%#@!*-abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         public JwtServiceTests()
         {
