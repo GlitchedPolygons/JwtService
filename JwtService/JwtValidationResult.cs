@@ -32,6 +32,36 @@ namespace GlitchedPolygons.Services.JwtService
         public string ErrorMessage { get; }
 
         /// <summary>
+        /// Get the token's claim by type name
+        /// (claims are key-value strings inside the token's payload json).
+        /// </summary>
+        /// <param name="claimKey"></param>
+        /// <returns>The claim's value if it was found inside the JWT claim payload; <c>null</c> otherwise.</returns>
+        public string this[string claimKey]
+        {
+            get
+            {
+                // Return null if the token's validation failed.
+                if (!Successful)
+                {
+                    return null;
+                }
+
+                // Look for the claim inside the validated JWT.
+                foreach (var claim in ValidatedToken.Item1.Claims)
+                {
+                    if (string.CompareOrdinal(claimKey, claim.Type) != 0)
+                        continue;
+
+                    return claim.Value;
+                }
+
+                // Return null if the JWT doesn't have any claims at all or if the claim was not found.
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Creates a <see cref="JwtValidationResult"/> instance.
         /// </summary>
         /// <param name="validatedToken">The validated token's <see cref="Tuple"/> containing both the decoded <see cref="JwtSecurityToken"/>
