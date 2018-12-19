@@ -33,11 +33,11 @@ namespace GlitchedPolygons.Services.JwtService
 
         /// <summary>
         /// Get the token's claim by type name
-        /// (claims are key-value strings inside the token's payload json).
+        /// (claims are key-value strings inside the JWT's payload json).
         /// </summary>
-        /// <param name="claimKey"></param>
-        /// <returns>The claim's value if it was found inside the JWT claim payload; <c>null</c> otherwise.</returns>
-        public string this[string claimKey]
+        /// <param name="claimKey">The claim key (<see cref="Claim.Type"/>).</param>
+        /// <returns>The <see cref="Claim"/> if it was found inside the JWT claims payload; <c>null</c> otherwise.</returns>
+        public Claim this[string claimKey]
         {
             get
             {
@@ -53,7 +53,7 @@ namespace GlitchedPolygons.Services.JwtService
                     if (string.CompareOrdinal(claimKey, claim.Type) != 0)
                         continue;
 
-                    return claim.Value;
+                    return claim;
                 }
 
                 // Return null if the JWT doesn't have any claims at all or if the claim was not found.

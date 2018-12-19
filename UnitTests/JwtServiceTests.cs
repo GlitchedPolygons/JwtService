@@ -381,5 +381,74 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
             Assert.NotNull(result.ErrorMessage);
             Assert.IsType<SecurityTokenInvalidAudienceException>(result.Exception);
         }
+
+        [Fact]
+        public void JwtValidationResultIndexer_RetrieveSingleClaim_ShouldSucceed()
+        {
+            var jwt = new JwtService(key, clockSkew: TimeSpan.FromMinutes(3));
+
+            var token = jwt.GenerateToken(
+                lifetime: TimeSpan.FromHours(1),
+                claims: new[] { new Claim("single_claim_key", "single_claim_value") }
+            );
+
+            var result = jwt.ValidateToken(token);
+
+            Assert.True(result.Successful);
+
+            var claim = result["single_claim_key"];
+
+            Assert.NotNull(claim);
+            Assert.Equal("single_claim_key", claim.Type);
+            Assert.Equal("single_claim_value", claim.Value);
+        }
+
+        [Fact]
+        public void JwtValidationResultIndexer_RetrieveMultipleClaims_ShouldSucceed()
+        {
+            var jwt = new JwtService(key, clockSkew: TimeSpan.FromMinutes(3));
+
+            var token = jwt.GenerateToken(
+                lifetime: TimeSpan.FromHours(1),
+                claims: new[] { new Claim("claim1", "value1"), new Claim("claim2", "value2"), new Claim("claim3", "value3") }
+            );
+
+            var result = jwt.ValidateToken(token);
+
+            Assert.True(result.Successful);
+
+            var claim1 = result["claim1"];
+            var claim2 = result["claim2"];
+            var claim3 = result["claim3"];
+
+            Assert.NotNull(claim1);
+            Assert.NotNull(claim2);
+            Assert.NotNull(claim3);
+            Assert.Equal("claim1", claim1.Type);
+            Assert.Equal("value1", claim1.Value);
+            Assert.Equal("claim2", claim2.Type);
+            Assert.Equal("value2", claim2.Value);
+            Assert.Equal("claim3", claim3.Type);
+            Assert.Equal("value3", claim3.Value);
+        }
+
+        [Fact]
+        public void JwtValidationResultIndexer_RetrieveInexistentSingleClaim_ShouldFail()
+        {
+            var jwt = new JwtService(key, clockSkew: TimeSpan.FromMinutes(3));
+
+            var token = jwt.GenerateToken(
+                lifetime: TimeSpan.FromHours(1),
+                claims: null
+            );
+
+            var result = jwt.ValidateToken(token);
+
+            Assert.True(result.Successful);
+
+            var claim = result["single_claim_key"];
+
+            Assert.Null(claim);
+        }
     }
 }
