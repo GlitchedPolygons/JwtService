@@ -1,9 +1,10 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Security;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Diagnostics.CodeAnalysis;
-using System.Threading.Tasks;
 
 using Microsoft.IdentityModel.Tokens;
 
@@ -424,10 +425,13 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
             Assert.NotNull(claim1);
             Assert.NotNull(claim2);
             Assert.NotNull(claim3);
+
             Assert.Equal("claim1", claim1.Type);
             Assert.Equal("value1", claim1.Value);
+
             Assert.Equal("claim2", claim2.Type);
             Assert.Equal("value2", claim2.Value);
+
             Assert.Equal("claim3", claim3.Type);
             Assert.Equal("value3", claim3.Value);
         }
@@ -449,6 +453,158 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
             var claim = result["single_claim_key"];
 
             Assert.Null(claim);
+        }
+
+        [Fact]
+        public void GenerateToken_OnlyPublicKeyProvided_ShouldFail()
+        {
+            using (var rsa = RSA.Create(4096))
+            {
+                var jwt = new JwtService(rsa.ExportParameters(false));
+                Assert.Throws<ArgumentException>(() => { jwt.GenerateToken(); });
+            }
+        }
+
+        [Theory]
+        [InlineData(2048)]
+        [InlineData(3072)]
+        [InlineData(4096)]
+        public void GenerateAsymmetricJwtCorrectly_ShouldSucceed(int keySize)
+        {
+            using (var rsa = RSA.Create(keySize))
+            {
+                var jwt = new JwtService(rsa.ExportParameters(true));
+                var token = jwt.GenerateToken();
+                Assert.False(string.IsNullOrEmpty(token) || string.IsNullOrWhiteSpace(token));
+            }
+        }
+
+        [Theory]
+        [InlineData(2048)]
+        [InlineData(3072)]
+        [InlineData(4096)]
+        public void GenerateAsymmetricJwtCorrectly_ValidationShouldAlsoSucceed(int keySize)
+        {
+            using (var rsa = RSA.Create(keySize))
+            {
+                var jwt = new JwtService(rsa.ExportParameters(true));
+                var validator = new JwtService(rsa.ExportParameters(false));
+
+                var token = jwt.GenerateToken(lifetime: TimeSpan.FromMinutes(10));
+                var result = validator.ValidateToken(token);
+
+                Assert.True(result.Successful);
+                Assert.NotNull(result.ValidatedToken);
+            }
+        }
+
+        [Theory]
+        [InlineData(2048)]
+        [InlineData(3072)]
+        [InlineData(4096)]
+        public void GenerateAsymmetricJwtCorrectly_ValidationShouldSucceed_ClaimsShouldMatch(int keySize)
+        {
+            using (var rsa = RSA.Create(keySize))
+            {
+                var jwt = new JwtService(rsa.ExportParameters(true));
+                var validator = new JwtService(rsa.ExportParameters(false), validateLifetime: false);
+
+                var token = jwt.GenerateToken(claims: new[] { new Claim("claim1", "value1"), new Claim("claim2", "value2") });
+                var result = validator.ValidateToken(token);
+
+                Assert.True(result.Successful);
+                Assert.NotNull(result.ValidatedToken);
+                Assert.Equal("value1", result["claim1"].Value);
+                Assert.Equal("value2", result["claim2"].Value);
+                Assert.Null(result["claim0"]);
+            }
+        }
+
+        [Theory]
+        [InlineData(-420)]
+        [InlineData(1024)]
+        [InlineData(32768)]
+        public void GenerateAsymmetricJwt_InstantiateServiceWithWrongKeySize_ShouldThrowException(int wrongKeySize)
+        {
+            Assert.ThrowsAny<Exception>(() =>
+            {
+                using (var rsa = RSA.Create(wrongKeySize))
+                {
+                    var jwt = new JwtService(rsa.ExportParameters(true));
+                    var token = jwt.GenerateToken();
+                    Assert.True(string.IsNullOrEmpty(token) || string.IsNullOrWhiteSpace(token));
+                }
+            });
+        }
+
+        [Fact]
+        public void GenerateAsymmetricJwt_ValidateWithWrongKeySize_ShouldFail()
+        {
+            var rsa2048 = RSA.Create(2048);
+            var rsa4096 = RSA.Create(4096);
+
+            var jwt4096 = new JwtService(rsa4096.ExportParameters(true));
+            var token = jwt4096.GenerateToken(lifetime: TimeSpan.FromMinutes(10));
+
+            var jwt4096_pub = new JwtService(rsa4096.ExportParameters(false));
+            var control = jwt4096_pub.ValidateToken(token);
+            Assert.True(control.Successful);
+
+            var jwt2048 = new JwtService(rsa2048.ExportParameters(false));
+            var result = jwt2048.ValidateToken(token);
+
+            Assert.False(result.Successful);
+
+            rsa2048.Dispose(); rsa4096.Dispose();
+        }
+
+        [Theory]
+        [InlineData(2048)]
+        [InlineData(3072)]
+        [InlineData(4096)]
+        public void GenerateAsymmetricJwt_ValidateWithWrongKeyOfSameSize_ShouldFail(int keySize)
+        {
+            var rsa1 = RSA.Create(keySize);
+            var rsa2 = RSA.Create(keySize);
+
+            var jwt1 = new JwtService(rsa1.ExportParameters(true));
+            var token = jwt1.GenerateToken(lifetime: TimeSpan.FromMinutes(10));
+
+            var jwt1_pub = new JwtService(rsa1.ExportParameters(false));
+            var control = jwt1_pub.ValidateToken(token);
+            Assert.True(control.Successful);
+
+            var jwt2 = new JwtService(rsa2.ExportParameters(false));
+            var result = jwt2.ValidateToken(token);
+
+            Assert.False(result.Successful);
+
+            rsa1.Dispose(); rsa2.Dispose();
+        }
+
+        [Fact]
+        public void GenerateAsymmetricJwt_ValidateTamperedToken_ShouldFail()
+        {
+            using (var rsa = RSA.Create(4096))
+            {
+                var jwt = new JwtService(rsa.ExportParameters(true));
+                var token = jwt.GenerateToken();
+
+                var tokenChars = token.ToCharArray();
+                for (int i = 0; i < tokenChars.Length; i++)
+                {
+                    if (new Random().NextDouble() > 0.9d)
+                    {
+                        tokenChars[i] = 'x';
+                    }
+                }
+
+                token = new string(tokenChars);
+                var result = jwt.ValidateToken(token);
+
+                Assert.False(result.Successful);
+                Assert.Null(result.ValidatedToken);
+            }
         }
     }
 }
