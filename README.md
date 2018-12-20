@@ -9,6 +9,6 @@ This library is built as a **netstandard2.0** class library and available throug
 
 ## Dependencies
 
-* [Microsoft.IdentityModel.Tokens v5.2.4](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/)
-* [System.IdentityModel.Tokens.Jwt v5.2.4](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/)
+* [Microsoft.IdentityModel.Tokens v5.3.0](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/)
+* [System.IdentityModel.Tokens.Jwt v5.3.0](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/)
 * xunit NuGet packages (for unit testing only).
