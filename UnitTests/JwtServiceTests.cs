@@ -36,7 +36,7 @@ namespace GlitchedPolygons.Services.JwtService.UnitTests
         [Fact]
         public void Ctor_NullOrEmptyKey_ThrowsArgumentException()
         {
-            Assert.Throws<ArgumentException>(() => new JwtService(null));
+            Assert.Throws<ArgumentException>(() => new JwtService(string.Empty));
             Assert.Throws<ArgumentException>(() => new JwtService(new SecureString()));
         }
 
