@@ -12,17 +12,17 @@
     <PackageProjectUrl>https://github.com/GlitchedPolygons/JwtService</PackageProjectUrl>
     <PackageIconUrl>https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/036/landscape/jwt.png</PackageIconUrl>
     <PackageTags>c# jwt token auth authentication web api security validation safety expiration</PackageTags>
-    <Version>1.1.3</Version>
+    <Version>1.1.4</Version>
     <AssemblyName>GlitchedPolygons.Services.JwtService</AssemblyName>
     <RootNamespace>GlitchedPolygons.Services.JwtService</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\JwtService.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandard2.0\GlitchedPolygons.Services.JwtService.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\JwtService.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\GlitchedPolygons.Services.JwtService.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
