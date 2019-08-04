@@ -1,16 +1,14 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Security;
 using System.Security.Claims;
 using System.Security.Cryptography;
-using System.Diagnostics.CodeAnalysis;
-
+using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
-
 using Xunit;
 
-namespace GlitchedPolygons.Services.JwtService.UnitTests
+namespace GlitchedPolygons.Services.JwtService.Tests
 {
     [SuppressMessage("ReSharper", "EnforceIfStatementBraces")]
     public class JwtServiceTests : IDisposable
