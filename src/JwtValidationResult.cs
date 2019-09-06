@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Claims;
 using System.Security.Principal;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace GlitchedPolygons.Services.JwtService
@@ -16,6 +17,11 @@ namespace GlitchedPolygons.Services.JwtService
         /// </summary>
         public Tuple<JwtSecurityToken, IPrincipal> ValidatedToken { get; }
 
+        /// <summary>
+        /// Gets the associated token's claims (from the JWT payload).
+        /// </summary>
+        public IEnumerable<Claim> Claims => ValidatedToken?.Item1?.Claims;
+        
         /// <summary>
         /// Was the validation successful?
         /// </summary>
@@ -36,27 +42,28 @@ namespace GlitchedPolygons.Services.JwtService
         /// (claims are key-value strings inside the JWT's payload json).
         /// </summary>
         /// <param name="claimKey">The claim key (<see cref="Claim.Type"/>).</param>
-        /// <returns>The <see cref="Claim"/> if it was found inside the JWT claims payload; <c>null</c> otherwise.</returns>
+        /// <returns>The <see cref="Claim"/> value if it was found inside the JWT claims payload; <c>null</c> otherwise.</returns>
         public Claim this[string claimKey]
         {
             get
             {
-                // Return null if the token's validation failed.
-                if (!Successful)
+                // Return null if the token's validation failed
+                // or if it doesn't have any claims at all.
+                if (!Successful || Claims is null)
                 {
                     return null;
                 }
 
                 // Look for the claim inside the validated JWT.
-                foreach (var claim in ValidatedToken.Item1.Claims)
+                foreach (var claim in this.Claims)
                 {
-                    if (string.CompareOrdinal(claimKey, claim.Type) != 0)
-                        continue;
-
-                    return claim;
+                    if (string.CompareOrdinal(claimKey, claim.Type) == 0)
+                    {
+                        return claim;
+                    }
                 }
 
-                // Return null if the JWT doesn't have any claims at all or if the claim was not found.
+                // Return null if the JWT doesn't have any claims matching the passed key name.
                 return null;
             }
         }

@@ -1,0 +1,413 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class JwtService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class JwtService
+   ">
+    <meta name="generator" content="docfx 2.43.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="GlitchedPolygons.Services.JwtService.JwtService">
+  
+  
+  <h1 id="GlitchedPolygons_Services_JwtService_JwtService" data-uid="GlitchedPolygons.Services.JwtService.JwtService" class="text-break">Class JwtService
+  </h1>
+  <div class="markdown level0 summary"><p>Useful JWT service for generating and validating tokens.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">JwtService</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="GlitchedPolygons.Services.JwtService.html">GlitchedPolygons.Services.JwtService</a></h6>
+  <h6><strong>Assembly</strong>: GlitchedPolygons.Services.JwtService.dll</h6>
+  <h5 id="GlitchedPolygons_Services_JwtService_JwtService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class JwtService</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GlitchedPolygons/JwtService/new/master/apiSpec/new?filename=GlitchedPolygons_Services_JwtService_JwtService__ctor_System_Security_Cryptography_RSAParameters_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Nullable_System_TimeSpan__.md&amp;value=---%0Auid%3A%20GlitchedPolygons.Services.JwtService.JwtService.%23ctor(System.Security.Cryptography.RSAParameters%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.Boolean%2CSystem.Nullable%7BSystem.TimeSpan%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GlitchedPolygons/JwtService/blob/master/src/JwtService.cs/#L59">View Source</a>
+  </span>
+  <a id="GlitchedPolygons_Services_JwtService_JwtService__ctor_" data-uid="GlitchedPolygons.Services.JwtService.JwtService.#ctor*"></a>
+  <h4 id="GlitchedPolygons_Services_JwtService_JwtService__ctor_System_Security_Cryptography_RSAParameters_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Nullable_System_TimeSpan__" data-uid="GlitchedPolygons.Services.JwtService.JwtService.#ctor(System.Security.Cryptography.RSAParameters,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Nullable{System.TimeSpan})">JwtService(RSAParameters, IEnumerable&lt;String&gt;, IEnumerable&lt;String&gt;, Boolean, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"><p>Constructs a new <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtService.html">JwtService</a> instance used for generating/validating tokens asymmetrically using the specified RSA key and token settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JwtService(RSAParameters rsaKey, IEnumerable&lt;string&gt; issuers = null, IEnumerable&lt;string&gt; audiences = null, bool validateLifetime = true, TimeSpan? clockSkew = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Security.Cryptography.RSAParameters</span></td>
+        <td><span class="parametername">rsaKey</span></td>
+        <td><p>If this <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtService.html">JwtService</a> instance is meant to generate new tokens, this must be the private RSA key, because that's needed for signing JWTs.<p> </p>If you're only validating tokens though, well then you can pass the public key here.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">issuers</span></td>
+        <td><p>The list of valid issuers. Can be left out <code>null</code> (any issuer would be valid in that case).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">audiences</span></td>
+        <td><p>The list of valid audiences. Can be left out <code>null</code> (any audience is valid in that case).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">validateLifetime</span></td>
+        <td><p>Should the tokens be validated against their expiration date too? If <code>false</code>, tokens that are already expired WILL validate nonetheless by default with this <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtService.html">JwtService</a> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">clockSkew</span></td>
+        <td><p>The clock skew to apply (default is 3 minutes).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GlitchedPolygons/JwtService/new/master/apiSpec/new?filename=GlitchedPolygons_Services_JwtService_JwtService__ctor_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Nullable_System_TimeSpan__.md&amp;value=---%0Auid%3A%20GlitchedPolygons.Services.JwtService.JwtService.%23ctor(System.String%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.Boolean%2CSystem.Nullable%7BSystem.TimeSpan%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GlitchedPolygons/JwtService/blob/master/src/JwtService.cs/#L30">View Source</a>
+  </span>
+  <a id="GlitchedPolygons_Services_JwtService_JwtService__ctor_" data-uid="GlitchedPolygons.Services.JwtService.JwtService.#ctor*"></a>
+  <h4 id="GlitchedPolygons_Services_JwtService_JwtService__ctor_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Nullable_System_TimeSpan__" data-uid="GlitchedPolygons.Services.JwtService.JwtService.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Nullable{System.TimeSpan})">JwtService(String, IEnumerable&lt;String&gt;, IEnumerable&lt;String&gt;, Boolean, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"><p>Constructs a new <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtService.html">JwtService</a> instance used for generating and validating tokens using the specified settings. Uses the HMAC-SHA512 algorithm.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JwtService(string key, IEnumerable&lt;string&gt; issuers = null, IEnumerable&lt;string&gt; audiences = null, bool validateLifetime = true, TimeSpan? clockSkew = default(TimeSpan? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The private key used for generating (and validating) tokens. DO NOT store this anywhere inside your source code/repo! Use a decent secret managing tool instead.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">issuers</span></td>
+        <td><p>The list of valid issuers. Can be left out <code>null</code> (any issuer is valid in that case).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">audiences</span></td>
+        <td><p>The list of valid audiences. Can be left out <code>null</code> (any audience is valid in that case).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">validateLifetime</span></td>
+        <td><p>Should the tokens be validated against their expiration date too? If <code>false</code>, tokens that are already expired WILL validate nonetheless by default with this <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtService.html">JwtService</a> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">clockSkew</span></td>
+        <td><p>The clock skew to apply (default is 3 minutes).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GlitchedPolygons/JwtService/new/master/apiSpec/new?filename=GlitchedPolygons_Services_JwtService_JwtService_GenerateToken_System_Nullable_System_TimeSpan__System_Nullable_System_DateTime__System_String_System_String_System_Collections_Generic_IEnumerable_System_Security_Claims_Claim__.md&amp;value=---%0Auid%3A%20GlitchedPolygons.Services.JwtService.JwtService.GenerateToken(System.Nullable%7BSystem.TimeSpan%7D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.String%2CSystem.String%2CSystem.Collections.Generic.IEnumerable%7BSystem.Security.Claims.Claim%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GlitchedPolygons/JwtService/blob/master/src/JwtService.cs/#L102">View Source</a>
+  </span>
+  <a id="GlitchedPolygons_Services_JwtService_JwtService_GenerateToken_" data-uid="GlitchedPolygons.Services.JwtService.JwtService.GenerateToken*"></a>
+  <h4 id="GlitchedPolygons_Services_JwtService_JwtService_GenerateToken_System_Nullable_System_TimeSpan__System_Nullable_System_DateTime__System_String_System_String_System_Collections_Generic_IEnumerable_System_Security_Claims_Claim__" data-uid="GlitchedPolygons.Services.JwtService.JwtService.GenerateToken(System.Nullable{System.TimeSpan},System.Nullable{System.DateTime},System.String,System.String,System.Collections.Generic.IEnumerable{System.Security.Claims.Claim})">GenerateToken(Nullable&lt;TimeSpan&gt;, Nullable&lt;DateTime&gt;, String, String, IEnumerable&lt;Claim&gt;)</h4>
+  <div class="markdown level1 summary"><p>Generates and returns a fresh JWT.<p> </p>
+If you want the token to expire, set the <code data-dev-comment-type="paramref" class="paramref">lifetime</code> parameter to anything not <code>null</code>.<p> </p>
+You can also generate a token that will only be valid in the future: use the <code data-dev-comment-type="paramref" class="paramref">notBefore</code> parameter for this (make sure it is later than <code>DateTime.UtcNow</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GenerateToken(TimeSpan? lifetime = default(TimeSpan? ), DateTime? notBefore = default(DateTime? ), string issuer = null, string audience = null, IEnumerable&lt;Claim&gt; claims = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">lifetime</span></td>
+        <td><p>The maximum lifetime of this token. Recommended value is around 15 minutes (<code>TimeSpan.FromMinutes(15)</code>).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">notBefore</span></td>
+        <td><p>If not <code>null</code>, the generated token will only be valid from this <span class="xref">System.DateTime</span> on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">issuer</span></td>
+        <td><p>Optional issuer claim.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">audience</span></td>
+        <td><p>Optional audience claim.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Security.Claims.Claim</span>&gt;</td>
+        <td><span class="parametername">claims</span></td>
+        <td><p>Any additional custom claims.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The generated JWT in its final, encoded state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GlitchedPolygons/JwtService/new/master/apiSpec/new?filename=GlitchedPolygons_Services_JwtService_JwtService_ValidateToken_System_String_Microsoft_IdentityModel_Tokens_TokenValidationParameters_.md&amp;value=---%0Auid%3A%20GlitchedPolygons.Services.JwtService.JwtService.ValidateToken(System.String%2CMicrosoft.IdentityModel.Tokens.TokenValidationParameters)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GlitchedPolygons/JwtService/blob/master/src/JwtService.cs/#L148">View Source</a>
+  </span>
+  <a id="GlitchedPolygons_Services_JwtService_JwtService_ValidateToken_" data-uid="GlitchedPolygons.Services.JwtService.JwtService.ValidateToken*"></a>
+  <h4 id="GlitchedPolygons_Services_JwtService_JwtService_ValidateToken_System_String_Microsoft_IdentityModel_Tokens_TokenValidationParameters_" data-uid="GlitchedPolygons.Services.JwtService.JwtService.ValidateToken(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters)">ValidateToken(String, TokenValidationParameters)</h4>
+  <div class="markdown level1 summary"><p>Validates a JWT <code>string</code> that has been created using the <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtService.html#GlitchedPolygons_Services_JwtService_JwtService_GenerateToken_System_Nullable_System_TimeSpan__System_Nullable_System_DateTime__System_String_System_String_System_Collections_Generic_IEnumerable_System_Security_Claims_Claim__">GenerateToken(Nullable&lt;TimeSpan&gt;, Nullable&lt;DateTime&gt;, String, String, IEnumerable&lt;Claim&gt;)</a> method.<p> </p>
+If the validation was successful, a <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtValidationResult.html">JwtValidationResult</a> containing both the raw, validated <span class="xref">System.IdentityModel.Tokens.Jwt.JwtSecurityToken</span> and the deserialized <span class="xref">System.Security.Principal.IPrincipal</span> instance is returned.<p> </p>
+If anything went wrong though (invalid, expired, etc...), the returned <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtValidationResult.html">JwtValidationResult</a> object contains information about the failure (e.g. thrown <span class="xref">System.Exception</span>, error message <code>string</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JwtValidationResult ValidateToken(string jwt, TokenValidationParameters validationParameters = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">jwt</span></td>
+        <td><p>The token to validate (encoded jwt).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.IdentityModel.Tokens.TokenValidationParameters</span></td>
+        <td><span class="parametername">validationParameters</span></td>
+        <td><p>The <span class="xref">Microsoft.IdentityModel.Tokens.TokenValidationParameters</span> to use for validation:
+can be left out <code>null</code> (the parameters defined in the <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtService.html">JwtService</a> constructor are used in that case).<p> </p>
+If you decide to pass this argument, make absolutely sure that you pass the correct <span class="xref">Microsoft.IdentityModel.Tokens.TokenValidationParameters.IssuerSigningKey</span> needed for validation, or else you'll run into errors for sure!<p> </p>
+Especially for asymmetrically signed tokens you need to be careful to pass the correct public RSA key.<p> </p>
+For standard symmetric JWTs, that would be the same key you used to generate the token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="GlitchedPolygons.Services.JwtService.JwtValidationResult.html">JwtValidationResult</a></td>
+        <td><p>A <a class="xref" href="GlitchedPolygons.Services.JwtService.JwtValidationResult.html">JwtValidationResult</a> object containing the validation's outcome.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/GlitchedPolygons/JwtService/new/master/apiSpec/new?filename=GlitchedPolygons_Services_JwtService_JwtService.md&amp;value=---%0Auid%3A%20GlitchedPolygons.Services.JwtService.JwtService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/GlitchedPolygons/JwtService/blob/master/src/JwtService.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

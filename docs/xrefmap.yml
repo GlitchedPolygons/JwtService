@@ -1,0 +1,159 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: GlitchedPolygons.Services.JwtService
+  name: GlitchedPolygons.Services.JwtService
+  href: api/GlitchedPolygons.Services.JwtService.html
+  commentId: N:GlitchedPolygons.Services.JwtService
+  fullName: GlitchedPolygons.Services.JwtService
+  nameWithType: GlitchedPolygons.Services.JwtService
+- uid: GlitchedPolygons.Services.JwtService.JwtService
+  name: JwtService
+  href: api/GlitchedPolygons.Services.JwtService.JwtService.html
+  commentId: T:GlitchedPolygons.Services.JwtService.JwtService
+  fullName: GlitchedPolygons.Services.JwtService.JwtService
+  nameWithType: JwtService
+- uid: GlitchedPolygons.Services.JwtService.JwtService.#ctor(System.Security.Cryptography.RSAParameters,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Nullable{System.TimeSpan})
+  name: JwtService(RSAParameters, IEnumerable<String>, IEnumerable<String>, Boolean, Nullable<TimeSpan>)
+  href: api/GlitchedPolygons.Services.JwtService.JwtService.html#GlitchedPolygons_Services_JwtService_JwtService__ctor_System_Security_Cryptography_RSAParameters_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Nullable_System_TimeSpan__
+  commentId: M:GlitchedPolygons.Services.JwtService.JwtService.#ctor(System.Security.Cryptography.RSAParameters,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Nullable{System.TimeSpan})
+  name.vb: JwtService(RSAParameters, IEnumerable(Of String), IEnumerable(Of String), Boolean, Nullable(Of TimeSpan))
+  fullName: GlitchedPolygons.Services.JwtService.JwtService.JwtService(System.Security.Cryptography.RSAParameters, System.Collections.Generic.IEnumerable<System.String>, System.Collections.Generic.IEnumerable<System.String>, System.Boolean, System.Nullable<System.TimeSpan>)
+  fullName.vb: GlitchedPolygons.Services.JwtService.JwtService.JwtService(System.Security.Cryptography.RSAParameters, System.Collections.Generic.IEnumerable(Of System.String), System.Collections.Generic.IEnumerable(Of System.String), System.Boolean, System.Nullable(Of System.TimeSpan))
+  nameWithType: JwtService.JwtService(RSAParameters, IEnumerable<String>, IEnumerable<String>, Boolean, Nullable<TimeSpan>)
+  nameWithType.vb: JwtService.JwtService(RSAParameters, IEnumerable(Of String), IEnumerable(Of String), Boolean, Nullable(Of TimeSpan))
+- uid: GlitchedPolygons.Services.JwtService.JwtService.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Nullable{System.TimeSpan})
+  name: JwtService(String, IEnumerable<String>, IEnumerable<String>, Boolean, Nullable<TimeSpan>)
+  href: api/GlitchedPolygons.Services.JwtService.JwtService.html#GlitchedPolygons_Services_JwtService_JwtService__ctor_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Nullable_System_TimeSpan__
+  commentId: M:GlitchedPolygons.Services.JwtService.JwtService.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Nullable{System.TimeSpan})
+  name.vb: JwtService(String, IEnumerable(Of String), IEnumerable(Of String), Boolean, Nullable(Of TimeSpan))
+  fullName: GlitchedPolygons.Services.JwtService.JwtService.JwtService(System.String, System.Collections.Generic.IEnumerable<System.String>, System.Collections.Generic.IEnumerable<System.String>, System.Boolean, System.Nullable<System.TimeSpan>)
+  fullName.vb: GlitchedPolygons.Services.JwtService.JwtService.JwtService(System.String, System.Collections.Generic.IEnumerable(Of System.String), System.Collections.Generic.IEnumerable(Of System.String), System.Boolean, System.Nullable(Of System.TimeSpan))
+  nameWithType: JwtService.JwtService(String, IEnumerable<String>, IEnumerable<String>, Boolean, Nullable<TimeSpan>)
+  nameWithType.vb: JwtService.JwtService(String, IEnumerable(Of String), IEnumerable(Of String), Boolean, Nullable(Of TimeSpan))
+- uid: GlitchedPolygons.Services.JwtService.JwtService.#ctor*
+  name: JwtService
+  href: api/GlitchedPolygons.Services.JwtService.JwtService.html#GlitchedPolygons_Services_JwtService_JwtService__ctor_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtService.#ctor
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtService.JwtService
+  nameWithType: JwtService.JwtService
+- uid: GlitchedPolygons.Services.JwtService.JwtService.GenerateToken(System.Nullable{System.TimeSpan},System.Nullable{System.DateTime},System.String,System.String,System.Collections.Generic.IEnumerable{System.Security.Claims.Claim})
+  name: GenerateToken(Nullable<TimeSpan>, Nullable<DateTime>, String, String, IEnumerable<Claim>)
+  href: api/GlitchedPolygons.Services.JwtService.JwtService.html#GlitchedPolygons_Services_JwtService_JwtService_GenerateToken_System_Nullable_System_TimeSpan__System_Nullable_System_DateTime__System_String_System_String_System_Collections_Generic_IEnumerable_System_Security_Claims_Claim__
+  commentId: M:GlitchedPolygons.Services.JwtService.JwtService.GenerateToken(System.Nullable{System.TimeSpan},System.Nullable{System.DateTime},System.String,System.String,System.Collections.Generic.IEnumerable{System.Security.Claims.Claim})
+  name.vb: GenerateToken(Nullable(Of TimeSpan), Nullable(Of DateTime), String, String, IEnumerable(Of Claim))
+  fullName: GlitchedPolygons.Services.JwtService.JwtService.GenerateToken(System.Nullable<System.TimeSpan>, System.Nullable<System.DateTime>, System.String, System.String, System.Collections.Generic.IEnumerable<System.Security.Claims.Claim>)
+  fullName.vb: GlitchedPolygons.Services.JwtService.JwtService.GenerateToken(System.Nullable(Of System.TimeSpan), System.Nullable(Of System.DateTime), System.String, System.String, System.Collections.Generic.IEnumerable(Of System.Security.Claims.Claim))
+  nameWithType: JwtService.GenerateToken(Nullable<TimeSpan>, Nullable<DateTime>, String, String, IEnumerable<Claim>)
+  nameWithType.vb: JwtService.GenerateToken(Nullable(Of TimeSpan), Nullable(Of DateTime), String, String, IEnumerable(Of Claim))
+- uid: GlitchedPolygons.Services.JwtService.JwtService.GenerateToken*
+  name: GenerateToken
+  href: api/GlitchedPolygons.Services.JwtService.JwtService.html#GlitchedPolygons_Services_JwtService_JwtService_GenerateToken_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtService.GenerateToken
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtService.GenerateToken
+  nameWithType: JwtService.GenerateToken
+- uid: GlitchedPolygons.Services.JwtService.JwtService.ValidateToken(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters)
+  name: ValidateToken(String, TokenValidationParameters)
+  href: api/GlitchedPolygons.Services.JwtService.JwtService.html#GlitchedPolygons_Services_JwtService_JwtService_ValidateToken_System_String_Microsoft_IdentityModel_Tokens_TokenValidationParameters_
+  commentId: M:GlitchedPolygons.Services.JwtService.JwtService.ValidateToken(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters)
+  fullName: GlitchedPolygons.Services.JwtService.JwtService.ValidateToken(System.String, Microsoft.IdentityModel.Tokens.TokenValidationParameters)
+  nameWithType: JwtService.ValidateToken(String, TokenValidationParameters)
+- uid: GlitchedPolygons.Services.JwtService.JwtService.ValidateToken*
+  name: ValidateToken
+  href: api/GlitchedPolygons.Services.JwtService.JwtService.html#GlitchedPolygons_Services_JwtService_JwtService_ValidateToken_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtService.ValidateToken
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtService.ValidateToken
+  nameWithType: JwtService.ValidateToken
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult
+  name: JwtValidationResult
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html
+  commentId: T:GlitchedPolygons.Services.JwtService.JwtValidationResult
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult
+  nameWithType: JwtValidationResult
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.#ctor(System.Tuple{System.IdentityModel.Tokens.Jwt.JwtSecurityToken,System.Security.Principal.IPrincipal},System.Exception,System.String)
+  name: JwtValidationResult(Tuple<JwtSecurityToken, IPrincipal>, Exception, String)
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult__ctor_System_Tuple_System_IdentityModel_Tokens_Jwt_JwtSecurityToken_System_Security_Principal_IPrincipal__System_Exception_System_String_
+  commentId: M:GlitchedPolygons.Services.JwtService.JwtValidationResult.#ctor(System.Tuple{System.IdentityModel.Tokens.Jwt.JwtSecurityToken,System.Security.Principal.IPrincipal},System.Exception,System.String)
+  name.vb: JwtValidationResult(Tuple(Of JwtSecurityToken, IPrincipal), Exception, String)
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.JwtValidationResult(System.Tuple<System.IdentityModel.Tokens.Jwt.JwtSecurityToken, System.Security.Principal.IPrincipal>, System.Exception, System.String)
+  fullName.vb: GlitchedPolygons.Services.JwtService.JwtValidationResult.JwtValidationResult(System.Tuple(Of System.IdentityModel.Tokens.Jwt.JwtSecurityToken, System.Security.Principal.IPrincipal), System.Exception, System.String)
+  nameWithType: JwtValidationResult.JwtValidationResult(Tuple<JwtSecurityToken, IPrincipal>, Exception, String)
+  nameWithType.vb: JwtValidationResult.JwtValidationResult(Tuple(Of JwtSecurityToken, IPrincipal), Exception, String)
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.#ctor*
+  name: JwtValidationResult
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult__ctor_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtValidationResult.#ctor
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.JwtValidationResult
+  nameWithType: JwtValidationResult.JwtValidationResult
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.ErrorMessage
+  name: ErrorMessage
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_ErrorMessage
+  commentId: P:GlitchedPolygons.Services.JwtService.JwtValidationResult.ErrorMessage
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.ErrorMessage
+  nameWithType: JwtValidationResult.ErrorMessage
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.ErrorMessage*
+  name: ErrorMessage
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_ErrorMessage_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtValidationResult.ErrorMessage
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.ErrorMessage
+  nameWithType: JwtValidationResult.ErrorMessage
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.Exception
+  name: Exception
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_Exception
+  commentId: P:GlitchedPolygons.Services.JwtService.JwtValidationResult.Exception
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.Exception
+  nameWithType: JwtValidationResult.Exception
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.Exception*
+  name: Exception
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_Exception_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtValidationResult.Exception
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.Exception
+  nameWithType: JwtValidationResult.Exception
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.Item(System.String)
+  name: Item[String]
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_Item_System_String_
+  commentId: P:GlitchedPolygons.Services.JwtService.JwtValidationResult.Item(System.String)
+  name.vb: Item(String)
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.Item[System.String]
+  fullName.vb: GlitchedPolygons.Services.JwtService.JwtValidationResult.Item(System.String)
+  nameWithType: JwtValidationResult.Item[String]
+  nameWithType.vb: JwtValidationResult.Item(String)
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.Item*
+  name: Item
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_Item_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtValidationResult.Item
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.Item
+  nameWithType: JwtValidationResult.Item
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.Successful
+  name: Successful
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_Successful
+  commentId: P:GlitchedPolygons.Services.JwtService.JwtValidationResult.Successful
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.Successful
+  nameWithType: JwtValidationResult.Successful
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.Successful*
+  name: Successful
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_Successful_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtValidationResult.Successful
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.Successful
+  nameWithType: JwtValidationResult.Successful
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.ValidatedToken
+  name: ValidatedToken
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_ValidatedToken
+  commentId: P:GlitchedPolygons.Services.JwtService.JwtValidationResult.ValidatedToken
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.ValidatedToken
+  nameWithType: JwtValidationResult.ValidatedToken
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.ValidatedToken*
+  name: ValidatedToken
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_ValidatedToken_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtValidationResult.ValidatedToken
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.ValidatedToken
+  nameWithType: JwtValidationResult.ValidatedToken

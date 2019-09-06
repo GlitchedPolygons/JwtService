@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtService", "JwtService\JwtService.csproj", "{EC024AA6-1418-472D-8885-9F0EFDDD7C9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtService", "src\JwtService.csproj", "{EC024AA6-1418-472D-8885-9F0EFDDD7C9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtService.Tests", "JwtService.Tests\JwtService.Tests.csproj", "{B8D04638-8AC4-4D9B-AE35-1B411DC1B8BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtService.Tests", "tests\JwtService.Tests.csproj", "{B8D04638-8AC4-4D9B-AE35-1B411DC1B8BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

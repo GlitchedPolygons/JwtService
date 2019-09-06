@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Text;
-using System.Security;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Security.Cryptography;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-
+using System.Collections.Generic;
 using Microsoft.IdentityModel.Tokens;
 
 namespace GlitchedPolygons.Services.JwtService
@@ -21,7 +19,7 @@ namespace GlitchedPolygons.Services.JwtService
         private readonly JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
 
         /// <summary>
-        /// Constructs a new <see cref="JwtService"/> instance used for generating and validating tokens using the specified settings.
+        /// Constructs a new <see cref="JwtService"/> instance used for generating and validating tokens using the specified settings. Uses the HMAC-SHA512 algorithm.
         /// </summary>
         /// <param name="key">The private key used for generating (and validating) tokens. DO NOT store this anywhere inside your source code/repo! Use a decent secret managing tool instead.</param>
         /// <param name="issuers">The list of valid issuers. Can be left out <c>null</c> (any issuer is valid in that case).</param>
@@ -47,37 +45,6 @@ namespace GlitchedPolygons.Services.JwtService
             };
 
             credentials = new SigningCredentials(validationParameters.IssuerSigningKey, SecurityAlgorithms.HmacSha512);
-        }
-
-        /// <summary>
-        /// Constructs a new <see cref="JwtService"/> instance used for generating and validating tokens using the specified settings.
-        /// </summary>
-        /// <param name="key">The private key used for generating (and validating) tokens. DO NOT store this anywhere inside your source code/repo! Use a decent secret managing tool instead.</param>
-        /// <param name="issuers">The list of valid issuers. Can be left out <c>null</c> (any issuer is valid in that case).</param>
-        /// <param name="audiences">The list of valid audiences. Can be left out <c>null</c> (any audience is valid in that case).</param>
-        /// <param name="validateLifetime">Should the tokens be validated against their expiration date too? If <c>false</c>, tokens that are already expired WILL validate nonetheless by default with this <see cref="JwtService"/> instance.</param>
-        /// <param name="clockSkew">The clock skew to apply (default is 3 minutes).</param>
-        public JwtService(SecureString key, IEnumerable<string> issuers = null, IEnumerable<string> audiences = null, bool validateLifetime = true, TimeSpan? clockSkew = null)
-        {
-            if (key is null || key.Length == 0)
-            {
-                throw new ArgumentException($"{nameof(JwtService)}::ctor: The mandatory {nameof(key)} parameter is either null or empty!");
-            }
-
-            validationParameters = new TokenValidationParameters
-            {
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key.ToString())),
-                ClockSkew = clockSkew ?? TimeSpan.FromMinutes(3),
-                ValidIssuers = issuers,
-                ValidAudiences = audiences,
-                ValidateIssuer = issuers != null,
-                ValidateAudience = audiences != null,
-                ValidateLifetime = validateLifetime
-            };
-
-            credentials = new SigningCredentials(validationParameters.IssuerSigningKey, SecurityAlgorithms.HmacSha512);
-
-            key.Dispose();
         }
 
         /// <summary>

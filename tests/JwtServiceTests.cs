@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using Xunit;
@@ -11,31 +12,26 @@ using Xunit;
 namespace GlitchedPolygons.Services.JwtService.Tests
 {
     [SuppressMessage("ReSharper", "EnforceIfStatementBraces")]
-    public class JwtServiceTests : IDisposable
+    public class JwtServiceTests
     {
-        private readonly SecureString key;
+        private readonly string key;
         private const string CHARS = "$%#@!*-abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         public JwtServiceTests()
         {
-            key = new SecureString();
+            var sb = new StringBuilder(128);
             for (int i = 0; i < 128; i++)
             {
                 var random = new Random();
-                key.AppendChar(CHARS[random.Next(0, CHARS.Length - 1)]);
+                sb.Append(CHARS[random.Next(0, CHARS.Length - 1)]);
             }
-        }
-
-        public void Dispose()
-        {
-            key.Dispose();
+            key = sb.ToString();
         }
 
         [Fact]
         public void Ctor_NullOrEmptyKey_ThrowsArgumentException()
         {
             Assert.Throws<ArgumentException>(() => new JwtService(string.Empty));
-            Assert.Throws<ArgumentException>(() => new JwtService(new SecureString()));
         }
 
         [Fact]
@@ -259,7 +255,7 @@ namespace GlitchedPolygons.Services.JwtService.Tests
                 claims: new[] { claim }
             );
 
-            var result = jwt.ValidateToken(token).ValidatedToken.Item1.Claims.ToArray()[0];
+            var result = jwt.ValidateToken(token).Claims.ToArray()[0];
 
             Assert.True(result.Type == claim.Type && result.Value == claim.Value && result.ValueType == claim.ValueType);
         }

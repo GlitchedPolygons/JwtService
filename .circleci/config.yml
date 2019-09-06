@@ -10,4 +10,4 @@ jobs:
           command: dotnet restore
       - run:
           name: Run xunit tests
-          command: dotnet test JwtService.Tests/JwtService.Tests.csproj
+          command: cd tests && dotnet test
