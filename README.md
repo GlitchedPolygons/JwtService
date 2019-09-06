@@ -1,4 +1,7 @@
-[![NuGet](https://img.shields.io/nuget/v/GlitchedPolygons.Services.JwtService.svg)](https://www.nuget.org/packages/GlitchedPolygons.Services.JwtService) [![CircleCI](https://circleci.com/gh/GlitchedPolygons/JwtService.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/JwtService) [![Travis Build Status](https://travis-ci.org/GlitchedPolygons/JwtService.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/JwtService)
+[![NuGet](https://buildstats.info/nuget/GlitchedPolygons.Services.JwtService)](https://www.nuget.org/packages/GlitchedPolygons.Services.JwtService)
+[![API Docs](https://img.shields.io/badge/api-docs-informational)](https://glitchedpolygons.github.io/JwtService/api/GlitchedPolygons.Services.JwtService.html)
+[![CircleCI](https://circleci.com/gh/GlitchedPolygons/JwtService.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/JwtService)
+[![Travis Build Status](https://travis-ci.org/GlitchedPolygons/JwtService.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/JwtService)
 
 # JWT service
 
@@ -9,6 +12,6 @@ This library is built as a **netstandard2.0** class library and available throug
 
 ## Dependencies
 
-* [Microsoft.IdentityModel.Tokens v5.3.0](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/)
-* [System.IdentityModel.Tokens.Jwt v5.3.0](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/)
+* [Microsoft.IdentityModel.Tokens v5.5.0](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/)
+* [System.IdentityModel.Tokens.Jwt v5.5.0](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/)
 * xunit NuGet packages (for unit testing only).
