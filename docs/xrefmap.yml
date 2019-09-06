@@ -89,6 +89,19 @@ references:
   isSpec: "True"
   fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.JwtValidationResult
   nameWithType: JwtValidationResult.JwtValidationResult
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.Claims
+  name: Claims
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_Claims
+  commentId: P:GlitchedPolygons.Services.JwtService.JwtValidationResult.Claims
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.Claims
+  nameWithType: JwtValidationResult.Claims
+- uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.Claims*
+  name: Claims
+  href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_Claims_
+  commentId: Overload:GlitchedPolygons.Services.JwtService.JwtValidationResult.Claims
+  isSpec: "True"
+  fullName: GlitchedPolygons.Services.JwtService.JwtValidationResult.Claims
+  nameWithType: JwtValidationResult.Claims
 - uid: GlitchedPolygons.Services.JwtService.JwtValidationResult.ErrorMessage
   name: ErrorMessage
   href: api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html#GlitchedPolygons_Services_JwtService_JwtValidationResult_ErrorMessage

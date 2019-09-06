@@ -12,10 +12,10 @@
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.JwtService.JwtService.html",
-          "hash": "fsIUesIFNtEEAEjFEZxwdA=="
+          "hash": "IByqVX4lnYu+xZ3pzBYj7w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -27,10 +27,10 @@
       "output": {
         ".html": {
           "relative_path": "api/GlitchedPolygons.Services.JwtService.JwtValidationResult.html",
-          "hash": "p8qJ0BXLZMWncQlBsggc4Q=="
+          "hash": "utEXTxbJDkXAkK1O7qTDTA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -42,7 +42,7 @@
           "hash": "oDRNmePlknVdAD8uurej4A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -150,7 +150,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 3,
-          "skipped_file_count": 3
+          "skipped_file_count": 1
         }
       }
     },
