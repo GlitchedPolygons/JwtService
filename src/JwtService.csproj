@@ -10,7 +10,6 @@
     <Description>A useful service class that provides functionality for generating and validating JWTs.</Description>
     <RepositoryUrl>https://github.com/GlitchedPolygons/JwtService</RepositoryUrl>
     <PackageProjectUrl>https://github.com/GlitchedPolygons/JwtService</PackageProjectUrl>
-    <PackageIconUrl>https://media.githubusercontent.com/media/GlitchedPolygons/NugetIcons/8fc395a8b2ae595a2816a690669490cf9a4764b9/jwt.png</PackageIconUrl>
     <PackageTags>c# jwt token auth authentication web api security validation safety expiration</PackageTags>
     <Version>1.2.1</Version>
     <AssemblyName>GlitchedPolygons.Services.JwtService</AssemblyName>
@@ -33,5 +32,14 @@
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.5.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />
   </ItemGroup>
+
+
+<PropertyGroup>
+  <PackageIcon>icon.png</PackageIcon>
+</PropertyGroup>
+
+<ItemGroup>
+  <None Include="icon.png" Pack="true" PackagePath="\"/>
+</ItemGroup>
 
 </Project>
