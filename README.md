@@ -1,7 +1,6 @@
 [![NuGet](https://buildstats.info/nuget/GlitchedPolygons.Services.JwtService)](https://www.nuget.org/packages/GlitchedPolygons.Services.JwtService)
 [![API Docs](https://img.shields.io/badge/api-docs-informational)](https://glitchedpolygons.github.io/JwtService/api/GlitchedPolygons.Services.JwtService.html)
-[![CircleCI](https://circleci.com/gh/GlitchedPolygons/JwtService.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/JwtService)
-[![Travis Build Status](https://travis-ci.org/GlitchedPolygons/JwtService.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/JwtService)
+[![Build status](https://ci.appveyor.com/api/projects/status/dr9ak7l95nl9pk6k?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/jwtservice)
 
 # JWT service
 
