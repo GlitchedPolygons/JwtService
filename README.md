@@ -1,3 +1,11 @@
+> [!IMPORTANT]
+>
+> # **NOTICE:**
+>
+> ## Development of this project has been migrated to: https://codeberg.org/GlitchedPolygons/JwtService
+>
+> ## All pull requests and issues on GitHub will be ignored from the 16th of August, 2025 onwards.
+
 [![NuGet](https://buildstats.info/nuget/GlitchedPolygons.Services.JwtService)](https://www.nuget.org/packages/GlitchedPolygons.Services.JwtService)
 [![API Docs](https://img.shields.io/badge/api-docs-informational)](https://glitchedpolygons.github.io/JwtService/api/GlitchedPolygons.Services.JwtService.html)
 [![Build status](https://ci.appveyor.com/api/projects/status/dr9ak7l95nl9pk6k?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/jwtservice)
